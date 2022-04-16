@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/loginScreenFragment"
+        android:name="sparksfoundation.sparks.loginapp.sparksloginapplication.LoginScreenFragment"
+        android:label="fragment_login_screen"
+        tools:layout="@layout/fragment_login_screen" >
+        <action
+            android:id="@+id/action_loginScreenFragment_to_userloggedinFragment"
+            app:destination="@id/userloggedinFragment" />
+        <action
+            android:id="@+id/action_loginScreenFragment_to_splashScreenFragment"
+            app:destination="@id/splashScreenFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/userloggedinFragment"
+        android:name="sparksfoundation.sparks.loginapp.sparksloginapplication.userloggedinFragment"
+        android:label="fragment_userloggedin"
+        tools:layout="@layout/fragment_userloggedin" >
+        <argument
+            android:name="user"
+            app:argType="sparksfoundation.sparks.loginapp.model.User" />
+        <action
+            android:id="@+id/action_userloggedinFragment_to_splashScreenFragment"
+            app:destination="@id/splashScreenFragment"
+            app:popUpTo="@id/loginScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="sparksfoundation.sparks.loginapp.sparksloginapplication.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_userloggedinFragment"
+            app:destination="@id/userloggedinFragment" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_loginScreenFragment"
+            app:destination="@id/loginScreenFragment" />
+    </fragment>
+</navigation>
